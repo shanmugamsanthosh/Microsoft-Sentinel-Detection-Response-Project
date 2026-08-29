@@ -81,6 +81,10 @@ In Microsoft Sentinel:
 
 ![Analytics rule general settings](images/Threat-Detection-(Analytics)-in-Sentinel/screenshot-81.png)
 
+### Screenshot Mapping
+
+**Screenshot (81)** shows the **Analytics rule wizard - General settings** page.
+
 ---
 
 ## Step 2: Add the Detection Query
@@ -107,6 +111,10 @@ The query:
 
 ![Scheduled analytics rule query](images/Threat-Detection-(Analytics)-in-Sentinel/screenshot-82.png)
 
+### Screenshot Mapping
+
+**Screenshot (82)** shows the **Analytics rule wizard - Rule query** page.
+
 ---
 
 ## Step 3: Configure Incident Settings
@@ -121,6 +129,10 @@ Recommended settings:
 
 ![Analytics incident settings](images/Threat-Detection-(Analytics)-in-Sentinel/screenshot-83.png)
 
+### Screenshot Mapping
+
+**Screenshot (83)** shows **Incident settings**.
+
 ---
 
 ## Step 4: Configure Alert Grouping
@@ -130,6 +142,10 @@ Alert grouping can reduce alert fatigue by consolidating similar alerts.
 For the brute-force rule, configure grouping according to the investigation requirement. Group related alerts into a single incident for easier investigation.
 
 ![Analytics alert grouping](images/Threat-Detection-(Analytics)-in-Sentinel/screenshot-84.png)
+
+### Screenshot Mapping
+
+**Screenshot (84)** shows **Grouping logic**.
 
 ---
 
@@ -152,6 +168,11 @@ Verify:
 
 ![Analytics rule review details](images/Threat-Detection-(Analytics)-in-Sentinel/screenshot-86.png)
 
+### Screenshot Mapping
+
+- **Screenshot (85):** Analytics rule review screen
+- **Screenshot (86):** Review details and incident configuration
+
 ---
 
 ## Step 6: Verify the Active Rule
@@ -168,6 +189,10 @@ Key points include the resulting rule as:
 - Severity: High
 
 ![Analytics dashboard showing active rules](images/Threat-Detection-(Analytics)-in-Sentinel/screenshot-87.png)
+
+### Screenshot Mapping
+
+**Screenshot (87)** is the supplied **Analytics dashboard - Active rules** image.
 
 ---
 
@@ -199,6 +224,11 @@ A representative query is:
 Event
 | where EventID == 1102
 ```
+
+### Supplied NRT Screenshots
+
+NRT rule screenshots were not included in this project image set.
+
 
 # Part 4: Analytics Rule Comparison
 
@@ -307,3 +337,16 @@ After creating analytics rules:
 - Kusto Query Language (KQL)
 - Microsoft Sentinel NRT Rules
 - Microsoft Sentinel Scheduled Rules
+
+## Complete Screenshot Map
+
+| Screenshot | Correct Use |
+|---|---|
+| `Screenshot (81).png` | Scheduled rule — General settings |
+| `Screenshot (82).png` | Scheduled rule — Query |
+| `Screenshot (83).png` | Scheduled rule — Incident settings |
+| `Screenshot (84).png` | Scheduled rule — Alert grouping |
+| `Screenshot (85).png` | Scheduled rule — Review |
+| `Screenshot (86).png` | Scheduled rule — Review details |
+| `Screenshot (87).png` | Analytics dashboard — Active rules |
+| `Screenshot (94).png` | Analytics dashboard — All rules; supplied in ZIP under the Playbooks image folder, so it has been copied here as well |

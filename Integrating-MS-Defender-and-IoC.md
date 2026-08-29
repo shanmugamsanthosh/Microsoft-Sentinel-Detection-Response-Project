@@ -32,6 +32,8 @@ In Microsoft Sentinel:
 
 > **Important:** The source documentation states that the Premium Microsoft Defender Threat Intelligence connector ingests data into the `ThreatIntelIndicators` table rather than the legacy `ThreatIntelligenceIndicator` table.
 
+> **Screenshot note:** No dedicated Microsoft Defender Threat Intelligence connector screenshot was supplied in the uploaded image set, so no image is invented for these two steps.
+
 ---
 
 # Part 2: Understanding the Cyber Kill Chain
@@ -305,4 +307,12 @@ You have successfully:
 - Traffic Light Protocol (TLP)
 - MITRE ATT&CK Framework
 - AbuseIPDB
+
+## Screenshot Map
+
+| Stage | Image | Purpose |
+|---|---|---|
+| Step 2 | `screenshot-76.png` | Threat Intelligence dashboard / existing indicators |
+| Step 4 | `screenshot-79.png` | Manual IOC form for `154.208.58.41` |
+| Step 5 | `screenshot-80.png` | Verified IOC in Threat Intelligence |
 

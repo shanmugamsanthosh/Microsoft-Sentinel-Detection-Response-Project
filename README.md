@@ -1,12 +1,18 @@
-# 🛡️ Microsoft Sentinel Detection & Response Projects
+# 🛡️ Microsoft Sentinel Threat Detection & Response Lab
 
 ## 📖 Overview
 
-This repository contains a collection of **hands-on Microsoft Sentinel projects** that demonstrate practical Security Operations Center (SOC) skills. The labs walk through the full lifecycle of a modern SIEM/SOAR deployment: environment setup, data ingestion, threat intelligence, detection analytics, automated response, and security visualization.
+This repository contains a complete **hands-on Microsoft Sentinel lab** designed to build practical Security Operations Center (SOC) skills. The lab walks through the full lifecycle of a modern SIEM/SOAR deployment on Azure:
 
-Each project is designed as a self-contained lab you can follow in your own Azure subscription (free trial or paid). Screenshots and step-by-step instructions are included so you can reproduce the configuration and understand the underlying concepts.
+- Environment setup and onboarding
+- Data ingestion and connectors
+- Threat intelligence and Indicators of Compromise (IoCs)
+- Detection engineering with Analytics Rules
+- Automated response using Playbooks and Automation Rules
+- Real-world KQL hunting queries
+- Security visualization with Workbooks and Watchlists
 
-**Author:** [Shanmugam Santhosh](https://github.com/shanmugamsanthosh)
+Every major step is documented with screenshots so you can follow along in your own Azure subscription (free trial or paid) and adapt the configuration to real environments.
 
 ---
 
@@ -17,112 +23,125 @@ Each project is designed as a self-contained lab you can follow in your own Azur
 3. [Integrating Microsoft Defender & Creating Indicators of Compromise (IoCs)](Integrating-MS-Defender-and-IoC.md)
 4. [Threat Detection (Analytics Rules)](Threat-Detection-(Analytics)-in-Sentinel.md)
 5. [Playbooks and Logic Apps (SOAR Automation)](Playbooks-and-Logic-Apps-in-Microsoft-Sentinel.md)
-6. [Visualizing Security Data with Workbooks](Visualize-Security-Data-in-MS-Sentinel.md)
-7. [Real-World Application in a SOC](#-real-world-application-in-a-soc)
-8. [Conclusion](#-conclusion)
+6. [Automation Rules and Playbooks](Automation-Rules-and-Playbooks.md)
+7. [Real-World KQL Queries](KQL-Queries-for-Microsoft-Sentinel.md)
+8. [Visualizing Security Data with Workbooks](Visualize-Security-Data-in-MS-Sentinel.md)
+9. [Real-World Application in a SOC](#-real-world-application-in-a-soc)
+10. [Conclusion](#-conclusion)
 
 ---
 
-## 🚀 Projects
+## 🚀 Lab Modules
 
 ### 1. ⚙️ [Initial Azure & Sentinel Setup](Sentinel-Set-Up.md)
 
 Foundation of the entire lab environment.
 
 - Create a dedicated resource group (`rg-sentinel-homelab`)
-- Deploy a Log Analytics workspace (`law-sentinel-homelabs`)
+- Deploy a Log Analytics workspace
 - Enable Microsoft Sentinel on the workspace
+- Create Windows and Linux virtual machines as log sources
+- Configure Network Security Group (NSG) rules for RDP and SSH
 - Verify the SecurityInsights solution and baseline permissions
 
-This project ensures you have a clean, isolated environment ready for data connectors and detection rules.
+This module produces a clean, isolated environment ready for data connectors and detection rules.
 
 ### 2. 🔗 [Integrating Data Connectors](Data-Connectors-in-Microsoft-Sentinel.md)
 
 Ingest security telemetry from multiple sources.
 
-- Install the Threat Intelligence solution from Content Hub
-- Configure TAXII connectors (e.g., Pulsedive) for threat indicators
+- Install solutions from the Content Hub
+- Configure Microsoft Defender for Cloud plans and monitoring
 - Deploy Windows Security Events via Azure Monitor Agent (AMA)
 - Create Data Collection Rules (DCRs) for event filtering and routing
+- Configure Syslog via AMA for Linux sources
 
-After this lab, Sentinel begins receiving continuous security events required for analytics and hunting.
+After this module, Sentinel begins receiving continuous security events required for analytics and hunting.
 
 ### 3. 🛡️ [Integrating Microsoft Defender & Creating Indicators of Compromise (IoCs)](Integrating-MS-Defender-and-IoC.md)
 
-Enrich detection with threat intelligence.
+Enrich detection with Microsoft Defender and threat intelligence.
 
-- Connect Microsoft Defender data into Sentinel
-- Manually create and manage Indicators of Compromise (IP, domain, URL, file hash)
-- Apply Traffic Light Protocol (TLP) markings
-- Correlate indicators with other data sources
-
-You build a living threat-intelligence repository that feeds analytics rules and workbooks.
+- Enable Microsoft Defender for Cloud plans
+- Onboard Content Hub solutions (Defender, Azure Activity, Syslog, and others)
+- Configure Windows Security Events and Syslog data connectors
+- Create and verify Indicators of Compromise (IoCs)
+- Validate that security events appear in Sentinel Logs
 
 ### 4. 🔍 [Threat Detection (Analytics Rules)](Threat-Detection-(Analytics)-in-Sentinel.md)
 
-Detect malicious activity with KQL-based rules.
+Build scheduled analytics rules that generate incidents.
 
-- Create scheduled analytics rules (e.g., brute-force detection)
-- Configure near-real-time (NRT) rules where appropriate
-- Set incident creation, alert grouping, and entity mapping
-- Review and tune rule severity, thresholds, and suppression
+- Use the Analytics rule wizard
+- Write and test KQL detection queries
+- Configure query scheduling, incident settings, and alert grouping
+- Review and enable rules so they produce actionable incidents for the SOC
 
-This project turns raw logs into actionable incidents that SOC analysts can investigate.
+### 5. 🤖 [Playbooks and Logic Apps (SOAR Automation)](Playbooks-and-Logic-Apps-in-Microsoft-Sentinel.md)
 
-### 5. 🤖 [Playbooks and Logic Apps](Playbooks-and-Logic-Apps-in-Microsoft-Sentinel.md)
+Automate incident response with Logic Apps / Playbooks.
 
-Automate incident response (SOAR).
+- Create incident-triggered playbooks
+- Retrieve incident details, perform optional enrichment, create comments, and send email notifications
+- Link playbooks to analytics rules for automated response
 
-- Design automation rules that trigger on specific incidents
-- Build Logic Apps playbooks (email notification, enrichment, remediation)
-- Grant Microsoft Sentinel the required managed-identity permissions
-- Test end-to-end playbook execution and troubleshoot common failures
+### 6. ⚡ [Automation Rules and Playbooks](Automation-Rules-and-Playbooks.md)
 
-Automation reduces mean time to respond (MTTR) and frees analysts for higher-value work.
+Additional automation capabilities for SOC efficiency.
 
-### 6. 📊 [Visualizing Security Data with Workbooks](Visualize-Security-Data-in-MS-Sentinel.md)
+- Create automation rules (for example, automatically change severity)
+- Use and customize Sentinel Automation templates
+- Automate incident status changes and other repetitive tasks
 
-Turn data into decision-ready dashboards.
+### 7. 📝 [Real-World KQL Queries](KQL-Queries-for-Microsoft-Sentinel.md)
 
-- Create custom workbooks for alert trends, failed logons, and threat intelligence
-- Add pie charts, time-series line charts, and bar charts
-- Explore built-in Sentinel workbook templates
-- Apply best practices for performance (Sentinel data lake, query optimization)
+Practical KQL queries used for threat hunting and detection engineering:
 
-Workbooks provide both operational views for the SOC and executive-ready reporting.
+1. Azure Sign-In Brute Force Detection
+2. Unusual User Sign-in Locations
+3. Elevation of Privileges in Azure AD
+4. Linux SSH Brute Force (VM)
+5. Windows Brute Force (VM)
+
+Each query includes simulation guidance and verification screenshots.
+
+### 8. 📊 [Visualizing Security Data with Workbooks](Visualize-Security-Data-in-MS-Sentinel.md)
+
+- Create watchlists (sample geo-IP CSV files are included in the repository root)
+- Build and use Security Operations Overview workbooks
+- View metrics, severity breakdowns, trends, and geographic attack maps
 
 ---
 
 ## 🌐 Real-World Application in a SOC
 
-These projects mirror day-to-day tasks performed by SOC analysts and detection engineers:
+These modules mirror day-to-day tasks performed by SOC analysts and detection engineers:
 
-| SOC Task                        | Project that covers it                          |
-|---------------------------------|-------------------------------------------------|
-| Environment & data onboarding   | Setup + Data Connectors                         |
-| Threat intelligence enrichment  | Defender & IoC                                  |
-| Detection engineering           | Analytics Rules                                 |
-| Incident response automation    | Playbooks / Logic Apps                          |
-| Reporting & situational awareness | Workbooks                                     |
+| SOC Task                          | Module that covers it                           |
+|-----------------------------------|-------------------------------------------------|
+| Environment & data onboarding     | Setup + Data Connectors                         |
+| Threat intelligence enrichment    | Defender & IoC                                  |
+| Detection engineering             | Analytics Rules + KQL Queries                   |
+| Incident response automation      | Playbooks / Logic Apps + Automation Rules       |
+| Reporting & situational awareness | Workbooks + Watchlists                          |
 
-Skills gained transfer directly to production Microsoft Sentinel (or Microsoft Defender XDR) deployments.
+Skills gained transfer directly to production Microsoft Sentinel and Microsoft Defender XDR deployments.
 
 ---
 
-## ✅ Conclusion
+## ✅ What You Will Have Completed
 
-By completing this series you will have:
+By finishing this lab you will have:
 
 - Deployed a fully functional Microsoft Sentinel workspace
 - Connected multiple data sources and threat feeds
-- Written and tuned analytics rules
-- Built automated response playbooks
-- Created security visualization workbooks
+- Written and tuned analytics rules and hunting queries
+- Built automated response playbooks and automation rules
+- Created security visualization workbooks and watchlists
 
 The repository is intentionally practical: every major configuration step is documented with screenshots so you can follow along or adapt the labs to your own environment.
 
-Happy hunting!  
-Feel free to open issues or submit improvements.
+Happy hunting!
 
 ---
 
@@ -136,22 +155,28 @@ Feel free to open issues or submit improvements.
 ├── Integrating-MS-Defender-and-IoC.md
 ├── Threat-Detection-(Analytics)-in-Sentinel.md
 ├── Playbooks-and-Logic-Apps-in-Microsoft-Sentinel.md
+├── Automation-Rules-and-Playbooks.md
+├── KQL-Queries-for-Microsoft-Sentinel.md
 ├── Visualize-Security-Data-in-MS-Sentinel.md
+├── geoip-summarized-1.csv          # Sample watchlist data
+├── geoip-summarized-2.csv          # Sample watchlist data
 └── images/
     ├── Sentinel-Set-Up/
     ├── Data-Connectors-in-Microsoft-Sentinel/
     ├── Integrating-MS-Defender-and-IoC/
     ├── Threat-Detection-(Analytics)-in-Sentinel/
-    └── Playbooks-and-Logic-Apps-in-Microsoft-Sentinel/
+    ├── Playbooks-and-Logic-Apps-in-Microsoft-Sentinel/
+    ├── Visualize-Security-Data-in-MS-Sentinel/
+    └── KQL-Queries/
 ```
 
-## 🔧 Resource Naming Used in Labs
+## 🔧 Resource Naming Used in the Lab
 
 | Resource                    | Name used in screenshots / docs      |
 |-----------------------------|--------------------------------------|
 | Resource Group              | `rg-sentinel-homelab`                |
-| Log Analytics Workspace     | `law-sentinel-homelabs`              |
+| Log Analytics Workspace     | `law-sentinel-homelabs` / `loganalysis-homelab2` |
 | Region                      | East US                              |
 | Subscription                | Azure subscription 1                 |
 
-> **Note:** Workspace names must be globally unique. If `law-sentinel-homelabs` is already taken, append a unique suffix.
+> **Note:** Workspace names must be globally unique. If a name is already taken, append a unique suffix.

@@ -61,6 +61,7 @@ Enter:
 
 ![TAXII connector configuration](images/Data-Connectors-in-Microsoft-Sentinel/screenshot-59.png)
 
+> **Important:** The source documentation specifies `taxii12` as the TAXII connector username. The password field is used for the threat-intelligence provider's API key.
 
 ## Step 4: Configure Pulsedive Threat Intelligence
 
@@ -75,6 +76,8 @@ Enter:
 - **Password:** Pulsedive API key
 
 ![Pulsedive TAXII configuration](images/Data-Connectors-in-Microsoft-Sentinel/screenshot-60.png)
+
+![TAXII connector configuration completed](images/Data-Connectors-in-Microsoft-Sentinel/screenshot-61.png)
 
 > **Security:** Never commit a real API key to GitHub. Keep secrets masked or stored in a secure secret-management system.
 
@@ -298,3 +301,27 @@ You have successfully:
 - Verified the Windows Security Events connector.
 
 Your Sentinel environment is now ready for threat detection, hunting, and automation.
+
+## Screenshot Map
+
+| Step | Screenshot | Purpose |
+|---|---|---|
+| 1 | `screenshot-56.png` | Threat Intelligence solution in Content Hub |
+| 1 | `screenshot-57.png` | Threat Intelligence solution details |
+| 2 | `screenshot-58.png` | TAXII data connector |
+| 3 | `screenshot-59.png` | TAXII configuration |
+| 4 | `screenshot-60.png` | Pulsedive TAXII configuration |
+| 5 | `screenshot-61.png` | Completed TAXII configuration |
+| 6 | `screenshot-62.png` | Connected TAXII server |
+| 7 | `screenshot-63.png` | Ingested threat intelligence |
+| 8 | `screenshot-64.png` | Windows Security Events solution |
+| 9 | `screenshot-65.png` | Installed Windows Security Events solution |
+| 10 | `screenshot-66.png` | Windows Security Events via AMA connector |
+| 10 | `screenshot-67.png` | Windows Security Events connector page |
+| 11 | `screenshot-68.png` | Create Data Collection Rule |
+| 11 | `screenshot-69.png` | DCR Basics tab |
+| 12 | `screenshot-70.png` | DCR Resources tab |
+| 13 | `screenshot-71.png` | DCR Collect tab |
+| 14 | `screenshot-72.png` | DCR Review and create |
+| 15 | `screenshot-73.png` | Connected Windows Security Events connector |
+| 16 | `screenshot-74.png` | Windows Security Events data types |
