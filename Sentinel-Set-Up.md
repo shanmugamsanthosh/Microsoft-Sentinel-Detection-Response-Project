@@ -136,32 +136,6 @@ The source documentation also notes the transition of Microsoft Sentinel toward 
 - Existing workspaces can continue to be accessed from Azure according to Microsoft's transition timeline.
 - The goal is a unified security operations experience.
 
-## Troubleshooting
-
-### Workspace Name Conflict
-
-**Error:** Workspace name is already taken.
-
-**Solution:** Add a unique suffix, such as:
-
-- `law-sentinel-homelabs`
-- `law-sentinel-homelab-dev`
-- `law-sentinel-homelab-01`
-
-### Sentinel Not Appearing
-
-Refresh the portal or check **All resources**. The Sentinel solution appears as:
-
-`SecurityInsights(<workspace-name>)`
-
-### Permission Issues
-
-Ensure the account has **Contributor** or **Owner** permissions required for the resources being created.
-
-### Workspace Not Active
-
-If the workspace shows **Provisioning** or **Failed**, wait a few minutes and refresh. If provisioning fails, recreate the workspace using a unique name in the same region.
-
 ## Next Steps
 
 After completing the setup, continue with:
@@ -190,15 +164,3 @@ You have successfully:
 | Sentinel Solution | `SecurityInsights(law-sentinel-homelabs)` |
 | Region | East US |
 | Subscription | Azure Subscription 1 |
-
-## Screenshot Map
-
-| Step | Screenshot | Purpose |
-|---|---|---|
-| 1 | `screenshot-48.png` | Azure portal home / Microsoft Sentinel access |
-| 2 | `screenshot-49.png` | Log Analytics workspace creation |
-| 3 | `screenshot-51.png` | Workspace overview and status |
-| 4 | `screenshot-53.png` | Add Microsoft Sentinel to workspace |
-| 5 | `screenshot-55.png` | Verify Sentinel resources |
-
-> **Naming note:** The example workspace uses `law-sentinel-homelabs` because the original `law-sentinel-homelab` name was already taken. In another Azure subscription, use a globally unique workspace name.
